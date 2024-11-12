@@ -1,0 +1,13 @@
+[package]
+name = "saya_refactor"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sqlx = { version = "0.7", features = ["sqlite", "runtime-tokio-native-tls"] }
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0.215", features = ["derive"] }
+serde_json = "1.0.132"
+url = {version = "2.5.3",features = ["serde"]}
+starknet-types-core = { version = "0.1.6", features = [ "arbitrary" ] }
+starknet = "0.12.0"
