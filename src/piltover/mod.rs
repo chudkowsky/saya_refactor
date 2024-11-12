@@ -18,15 +18,15 @@ pub struct PiltoverCalldata {
     pub onchain_data_hash: Felt,
     pub onchain_data_size: (Felt, Felt), // U256
 }
-
+#[derive(Debug)]
 pub struct Piltover {
-    contract: Felt,
-    account: SayaStarknetAccount,
+    pub contract: Felt,
+    pub account: SayaStarknetAccount,
 }
 pub struct PiltoverState {
-    state_root: Felt,
-    block_number: Felt,
-    block_hash: Felt,
+    pub state_root: Felt,
+    pub block_number: u32,
+    pub block_hash: Felt,
 }
 
 impl Piltover {
@@ -50,7 +50,7 @@ impl Piltover {
         let block_hash = transaction[2];
         let piltover_state = PiltoverState {
             state_root: state,
-            block_number,
+            block_number: block_number.to_string().parse().unwrap(),
             block_hash,
         };
         return piltover_state;
@@ -74,10 +74,10 @@ mod tests {
     async fn test_piltover() {
         let starknet_url = Url::parse("https://api.cartridge.gg/x/starknet/sepolia").unwrap();
         let signer_address =
-            Felt::from_hex("<acount_addres>")
+            Felt::from_hex("0x069A4f598B14F8424F2Ee90B7A55fbc6083635dA13f96a35acae04e6C149798D")
                 .unwrap();
         let signer_key =
-            Felt::from_hex("<private key>")
+            Felt::from_hex("0x036e29b89cc49d3ade4c0535b88d7131f39c58aef0c75e76d76e6ccf075b105f")
                 .unwrap();
             
         let starknet_account = StarknetAccountData {

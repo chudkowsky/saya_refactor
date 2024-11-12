@@ -12,7 +12,6 @@ pub struct StarknetAccountData {
     pub signer_address: Felt,
     pub signer_key: Felt,
 }
-
 pub type SayaStarknetAccount = SingleOwnerAccount<JsonRpcClient<HttpTransport>, LocalWallet>;
 
 impl StarknetAccountData {

@@ -20,7 +20,7 @@ pub trait SayaProvingDb {
         query_id: &str,
         status: AtlanticStatus,
     ) -> Result<(), sqlx::Error>;
-    async fn check_status(&self, block: i32) -> Result<(i32, String, String), sqlx::Error>;
-    // async fn list_pending_blocks(&self) -> Result<Vec<(i32, i32, String)>, sqlx::Error>;
+    async fn check_status(&self, block: u32) -> Result<(u32, String, String), sqlx::Error>;
+    async fn list_pending_blocks(&self) -> Result<Vec<(u32, String, String)>, sqlx::Error>;
 }
 
